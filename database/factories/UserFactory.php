@@ -21,3 +21,13 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Post::class, function (Faker $faker) {
+//    $userIds = [];
+    $userIds = \App\User::lists('id')->toArray();
+    return [
+        'title' => $faker->sentence,
+        'body' => $faker->paragraph,
+        'user_id' => $faker->randomElement($userIds)
+    ];
+});
