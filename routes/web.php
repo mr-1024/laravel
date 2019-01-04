@@ -28,4 +28,5 @@ Route::namespace('User')->group(function(){
 //       //  }
 //    });
     Route::get('user',['uses'=>'UserController@index']);
+    Route::get('test/{body?}',['uses'=>'UserController@translate']);
 });
